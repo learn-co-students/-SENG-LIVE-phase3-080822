@@ -56,8 +56,4 @@ class Donation
         DB.execute(sql)
     end 
 
-    def name 
-        puts "testing send!!!"
-    end 
-
 end 

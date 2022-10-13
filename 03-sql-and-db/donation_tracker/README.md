@@ -1,17 +1,12 @@
-## 3. SQL & Databases
+# Intro to Databases
+### Lecture Take Aways
 
-### SWBAT
-
-- [ ] Explain why we use databases
-- [ ] Explain what SQL is and why we use it
-- [ ] Explain the difference between a database, server, and API
-- [ ] Explain the difference between rows and columns in a table
-- [ ] Explain the difference between a foreign key and primary key
-- [ ] Explain what a join table is
-- [ ] Explain what it means to seed a database
-- [ ] Observe using SQL to communicate with a database
-- [ ] Explain what an ORM is and why we use Active Record
-
+- The benefit of databases in applications
+- Relationship between a database and an API
+- Mapping columns and rows to classes and instances
+- Basic SQL queries
+- Primary Keys
+- Foreign Keys
 
 ### Current application problems:
 
@@ -34,23 +29,7 @@
 - Language used to communicate with and manage databases
 - It is a whole science in and of itself. We learn the very basics to understand Active Record better, we can also use basic knowledge to configure and customize database communications outside of conventions
 
-The following outline the configuration changes necessary to integrate a SQLite database into our application.
-  
-## DB Config
-
-### Add sqlite3 gem to Gemfile
-
-```bash
-bundle add sqlite3
-```
-
-Install [DB Browser for SQLite](https://sqlitebrowser.org/)
-
-WSL [Using SQLite with VS Code Extension](https://www.youtube.com/watch?v=bKixKfb1J1o)
-  - Right click DB and select open Database
-  - In SQLite Explorer right click the Database and select new query 
-  - Wright the query, highlight the query, click right and select run query
-
+Keywords:
 
 #### CREATE TABLE (establish a table)
 
@@ -60,11 +39,6 @@ CREATE TABLE tablename(
     attribute TYPE,
     attribute TYPE
 )
-```
-
-#### Delete tables
-```sql 
-DROP TABLE table_name;
 ```
 
 #### SELECT (retrieve)
