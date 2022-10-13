@@ -1,3 +1,4 @@
+require 'pry'
 class Donation
 
     attr_accessor :amount, :date, :organization_id 
@@ -5,14 +6,12 @@ class Donation
 
     def initialize(attributes) 
         attributes.each do |key, value| 
-            binding.pry
             if self.respond_to?("#{key.to_s}=") 
                 self.send("#{key.to_s}=", value) 
             end 
         end
 
     end
-
     def save
         if self.id
             self.update
@@ -36,13 +35,13 @@ class Donation
         self
     end
 
-    def self.all 
-        array_of_hashes = DB.execute("SELECT * FROM donations")
-        array_of_hashes.map do |hash|
-            binding.pry
-          self.new(hash)
-        end
-    end
+    # def self.all 
+    #     array_of_hashes = DB.execute("SELECT * FROM donations")
+    #     array_of_hashes.map do |hash|
+    #         binding.pry
+    #       self.new(hash)
+    #     end
+    # end
 
     def self.create_table 
         sql = <<-SQL
@@ -57,3 +56,5 @@ class Donation
     end 
 
 end 
+
+binding.pry
