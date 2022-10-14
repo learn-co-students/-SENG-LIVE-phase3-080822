@@ -1,2 +1,16 @@
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
+
+
+# Create tasks that we can perform automatically 
+
+
+desc "Runs a pry console"
+task :console do 
+  ActiveRecord::Base.logger = Logger.new(STDOUT) # will print out the sql queries that are happening when we use active record methods 
+  Pry.start
+end
+
+task :hello_world do 
+  puts "hello world"
+end

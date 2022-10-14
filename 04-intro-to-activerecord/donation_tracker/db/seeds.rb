@@ -1,0 +1,5 @@
+Donation.create(amount: 200, date: 101422, completed:true)
+Donation.create(amount: 400, date: 101422, completed:true)
+Donation.create(amount: 600, date: 103022, completed:true)
+Donation.create(amount: 350, date: 102422, completed:true)
+Donation.create(amount: 100, date: 102022, completed:true)

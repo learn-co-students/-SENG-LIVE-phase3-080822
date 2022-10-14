@@ -1,60 +1,37 @@
-class Donation
+class Donation < ActiveRecord::Base
 
-    attr_accessor :amount, :date, :organization_id 
-    attr_reader :id
+    # Create
 
-    def initialize(attributes) 
-        attributes.each do |key, value|
-            if self.respond_to?("#{key.to_s}=") 
-                self.send("#{key.to_s}=", value) 
-            end 
-        end
+    # .new is going to instantiate our RUBY object but wont create a db record, we have to take 1 step further and invoke .save
+    # .create is going to instantiate AND persist the new record
 
-    end
+    # Read 
 
-    def save 
-        if self.id
-            self.update
-        else 
-            sql = <<-SQL
-                INSERT INTO donations (amount, date, organization_id) VALUES (?, ?, ?);
-            SQL
+    # .all return all donations in the donations table
 
-            DB.execute(sql, self.amount, self.date, self.organization_id)
-            @id = DB.last_insert_row_id
-        end 
-        self  
-    end
+    # .find(id): this would return a single donation that matches the id provided
 
-    def update 
-        sql = <<-SQL
-           UPDATE donations SET amount = ?, date = ?, organization_id = ? WHERE id = ?
-        SQL
+    # .find_by(attr: val) this would return a single donation that matches the given value for an attribute
 
-        DB.execute(sql, self.amount, self.date, self.organization_id, self.id)
-        self
-    end
+    # Update 
+    # .update: will update an existing donation, first we need to find the donation we want to update
 
-    def self.all 
-        array_of_hashes = DB.execute("SELECT * FROM donations")
-        array_of_hashes.map do |hash|
-            binding.pry
-          self.new(hash)
-        end
-    end
+    # flow
+    # 1. find the record 
+    # 2. update the attribute 
 
-    def self.create_table 
-        sql = <<-SQL
-        CREATE TABLE IF NOT EXISTS donations (
-            id INTEGER PRIMARY KEY, 
-            amount INTEGER,
-            date INTEGER,
-            organization_id INTEGER
-        );
-        SQL
-        DB.execute(sql)
-    end 
+    # Delete 
 
+    # flow
+    # 1. find the record 
+    # 2. delete the record
+
+
+    # to delete all data: .destroy_all
+
+    # Donation.all.select do |d|
+    #      donation.amount == 200
+    # end 
 
 end 
 
