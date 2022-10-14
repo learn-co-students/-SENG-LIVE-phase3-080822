@@ -72,8 +72,6 @@ class ApplicationRecord < ActiveRecord::Base
 end
 ```
 
-Conventionally, there will be an `ApplicationRecord` class that is responsible for establishing the connection with Active Record Base and all subsequent classes will then inherit from `ApplicationRecord`. This will keep code DRY.
-
 # Rake
 
 - Rake is a gem that can be installed and used to automate repetitive behaviors and actions
