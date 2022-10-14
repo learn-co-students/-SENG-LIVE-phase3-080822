@@ -156,5 +156,4 @@ Donation.create(amount: 20.00, date: 10/01/21, completed: false)
 - sum method for the total***
 - donation model 
 
-11. Create a method that will toggle a donations completed status.
-12. Create a method that will sort the list of existing organizations in alphabetical order.
+11. Create a method that will sort the list of existing organizations in alphabetical order.
