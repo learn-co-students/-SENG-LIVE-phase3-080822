@@ -18,3 +18,8 @@ function App() {
 }
 
 export default App;
+
+
+fetch(url, {
+  method: "PATCH"
+})
